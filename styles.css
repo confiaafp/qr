@@ -1,0 +1,214 @@
+/* ===============================================
+   AFP CONFÍA — Validación de estado de cuenta
+   =============================================== */
+
+:root {
+  --rojo-titulo: #E02020;      /* Rojo del título */
+  --texto:       #212529;      /* Texto oscuro */
+  --texto-gris:  #3E3E3E;      /* Etiquetas */
+  --campo-bg:    #E9ECEF;      /* Fondo de los campos (gris) */
+  --campo-borde: #DEE2E6;      /* Borde de los campos */
+  --dolar-bg:    #F8F9FA;      /* Fondo blanco de la caja del $ */
+  --borde:       #D2D2D2;      /* Borde de la tarjeta */
+  --divisor:     #E3E3E3;      /* Líneas divisorias */
+  --btn-bg:      #59595B;      /* Botón Salir */
+  --btn-hover:   #454648;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #FFFFFF;   /* Fondo blanco de la página, igual que la imagen */
+  color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================= TARJETA ================= */
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  background: #FFFFFF;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* ================= ENCABEZADO ================= */
+
+.card-header {
+  text-align: center;
+  padding: 34px 28px 26px;
+  border-bottom: 1px solid var(--divisor);
+}
+
+/* Logo de la empresa (imagen) */
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-img {
+  height: 75px;      /* Ajusta la altura si tu imagen lo requiere */
+  width: auto;
+  display: block;
+}
+
+.title {
+  margin-top: 26px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 430px;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--rojo-titulo);
+}
+
+.subtitle {
+  margin-top: 14px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #2E2E2E;
+}
+
+/* ================= CAMPOS ================= */
+
+.card-body {
+  padding: 26px 50px 24px;
+  border-bottom: 1px solid var(--divisor);
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.field-row:last-child {
+  margin-bottom: 0;
+}
+
+.field-label {
+  flex: 0 0 150px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--texto-gris);
+}
+
+/* Caja gris de los campos */
+.field-value {
+  flex: 1;
+  height: 38px;
+  background: var(--campo-bg);
+  border: 1px solid var(--campo-borde);
+  border-radius: 6px;
+  padding: 0 14px;
+  font-size: 14px;
+  color: var(--texto);
+  display: flex;
+  align-items: center;
+}
+
+
+
+.field-money {
+  position: relative;
+  background: var(--campo-bg);
+  padding: 0;
+}
+
+.field-money .amount {
+  flex: 1;
+  height: 38px;
+  background: var(--campo-bg);
+  border: 1px solid var(--campo-borde);
+  border-radius: 6px;
+  padding: 0 14px 0 46px;   /* espacio para la caja del $ */
+  font-size: 14px;
+  color: var(--texto);
+  display: flex;
+  align-items: center;
+}
+
+.field-money .currency {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 35px;
+  height: 38px;
+  background: var(--dolar-bg);
+  border: 1px solid var(--campo-borde);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--texto);
+  z-index: 1;
+}
+
+/* ================= PIE / BOTÓN ================= */
+
+.card-footer {
+  padding: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-salir {
+  background: var(--btn-bg);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 12px 40px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;   /* por si se usa como enlace (a) */
+  display: inline-block;
+  transition: background 0.2s ease;
+}
+
+.btn-salir:hover {
+  background: var(--btn-hover);
+  color: #FFFFFF;
+}
+
+.btn-salir:active {
+  transform: translateY(1px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 520px) {
+  .field-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .field-label {
+    flex: none;
+  }
+
+  .logo-img {
+    height: 40px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+}
