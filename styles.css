@@ -1,18 +1,20 @@
-/* ===============================================
-   AFP CONFÍA — Validación de estado de cuenta
-   =============================================== */
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('fonts/nunito-sans-var.woff2') format('woff2');
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --rojo-titulo: #E02020;      /* Rojo del título */
-  --texto:       #212529;      /* Texto oscuro */
-  --texto-gris:  #3E3E3E;      /* Etiquetas */
-  --campo-bg:    #E9ECEF;      /* Fondo de los campos (gris) */
-  --campo-borde: #DEE2E6;      /* Borde de los campos */
-  --dolar-bg:    #F8F9FA;      /* Fondo blanco de la caja del $ */
-  --borde:       #D2D2D2;      /* Borde de la tarjeta */
-  --divisor:     #E3E3E3;      /* Líneas divisorias */
-  --btn-bg:      #59595B;      /* Botón Salir */
-  --btn-hover:   #454648;
+  --rojo-titulo: #DC0C23;   
+  --texto:       #212529;   
+  --campo-bg:    #E9ECEF;   
+  --campo-borde: #DEE2E6; 
+  --dolar-bg:    #F8F9FA;  
+  --borde:       #D2D2D2;   
+  --btn-bg:      #575756;   
+  --btn-hover:   #454544;
 }
 
 * {
@@ -22,8 +24,10 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background: #FFFFFF;   /* Fondo blanco de la página, igual que la imagen */
+  font-family: 'Nunito Sans', Roboto, sans-serif;
+  font-size: 13px;                    
+  line-height: 24px;                  
+  background: #FFFFFF;
   color: var(--texto);
   min-height: 100vh;
   display: flex;
@@ -33,11 +37,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ================= TARJETA ================= */
+/* ================= TARJETA  ================= */
 
 .card {
   width: 100%;
-  max-width: 560px;
+  max-width: 450px;
   background: #FFFFFF;
   border: 1px solid var(--borde);
   border-radius: 6px;
@@ -48,52 +52,51 @@ body {
 
 .card-header {
   text-align: center;
-  padding: 34px 28px 26px;
-  border-bottom: 1px solid var(--divisor);
+  padding: 42px 20px 20px;
+  border-bottom: 1px solid var(--borde);
 }
 
-/* Logo de la empresa (imagen) */
 .logo {
   display: flex;
   justify-content: center;
 }
 
 .logo-img {
-  height: 75px;      /* Ajusta la altura si tu imagen lo requiere */
+  height: 70px;      
   width: auto;
-  display: block;
+ 
 }
 
 .title {
-  margin-top: 26px;
+  margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 430px;
-  font-size: 21px;
+  max-width: 390px;             
+  font-size: 22px;
+  line-height: 30px;
   font-weight: 700;
-  line-height: 1.35;
   color: var(--rojo-titulo);
 }
 
 .subtitle {
-  margin-top: 14px;
-  font-size: 14.5px;
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 24px;
   font-weight: 700;
-  color: #2E2E2E;
+  color: var(--btn-bg);
 }
 
 /* ================= CAMPOS ================= */
 
 .card-body {
-  padding: 26px 50px 24px;
-  border-bottom: 1px solid var(--divisor);
+  padding: 16px 16px 24px;
+  border-bottom: 1px solid var(--borde);
 }
 
 .field-row {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 14px;
+  align-items: flex-start;     
+  margin-bottom: 8px;           
 }
 
 .field-row:last-child {
@@ -101,21 +104,24 @@ body {
 }
 
 .field-label {
-  flex: 0 0 150px;
-  font-size: 14px;
-  line-height: 1.4;
-  color: var(--texto-gris);
+  flex: 0 0 146px;              
+  padding-right: 22px;          
+  padding-top: 14px;            
+  font-size: 16px;             
+  line-height: 24px;
+  color: var(--texto);
 }
 
-/* Caja gris de los campos */
+/* ---------- Caja gris de los campos ---------- */
+
 .field-value {
   flex: 1;
   height: 38px;
   background: var(--campo-bg);
   border: 1px solid var(--campo-borde);
   border-radius: 6px;
-  padding: 0 14px;
-  font-size: 14px;
+  padding: 0 12px;
+  font-size: 16px;
   color: var(--texto);
   display: flex;
   align-items: center;
@@ -125,28 +131,17 @@ body {
 
 .field-money {
   position: relative;
-  background: var(--campo-bg);
-  padding: 0;
 }
 
 .field-money .amount {
-  flex: 1;
-  height: 38px;
-  background: var(--campo-bg);
-  border: 1px solid var(--campo-borde);
-  border-radius: 6px;
-  padding: 0 14px 0 46px;   /* espacio para la caja del $ */
-  font-size: 14px;
-  color: var(--texto);
-  display: flex;
-  align-items: center;
+  padding: 0 12px 0 46px;       
 }
 
 .field-money .currency {
   position: absolute;
   left: 0;
   top: 0;
-  width: 35px;
+  width: 36px;
   height: 38px;
   background: var(--dolar-bg);
   border: 1px solid var(--campo-borde);
@@ -154,7 +149,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--texto);
   z-index: 1;
 }
@@ -162,7 +157,7 @@ body {
 /* ================= PIE / BOTÓN ================= */
 
 .card-footer {
-  padding: 28px;
+  padding: 9px;
   display: flex;
   justify-content: center;
 }
@@ -171,13 +166,14 @@ body {
   background: var(--btn-bg);
   color: #FFFFFF;
   font-family: inherit;
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 25px;
   font-weight: 700;
-  padding: 12px 40px;
+  padding: 12px 47px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  text-decoration: none;   /* por si se usa como enlace (a) */
+  text-decoration: none;   
   display: inline-block;
   transition: background 0.2s ease;
 }
@@ -202,13 +198,16 @@ body {
 
   .field-label {
     flex: none;
+    padding-top: 0;
+    padding-right: 0;
   }
 
   .logo-img {
-    height: 40px;
+    height: 55px;
   }
 
   .title {
     font-size: 18px;
+    line-height: 26px;
   }
 }
